@@ -5,36 +5,72 @@ const submitButton = document.getElementById("btn-submit");
 const history = document.querySelector(".city-buttons");
 historyCountSpan = document.querySelector("#history-count")
 
-// let cityLocalStorageObject = {}; 
+let cityLocalStorageObject = {}; 
 let citiesArray = [];
 
-
-// console.log(submitButton);
-// console.log(nameInputEl);
-// console.log(localStorage);
 
 
 const addCity = (ev) => {
   ev.preventDefault();
 
-  let cityLocalStorageObject = {
+    cityLocalStorageObject = {
     city: nameInputEl.value,
+    }
 
-  // if (cityLocalStorageObject === "") {
-  //   return;
-  }
+      if (cityLocalStorageObject === "") {
+      return;
+      }
+        //citiesArray has new object KEY:VALUE added to end of array
+        citiesArray.push(cityLocalStorageObject);
+        document.querySelector("form").reset();
+        console.log(citiesArray);
+
+      localStorage.setItem("cityList", JSON.stringify(citiesArray));
   
+      let cityName = cityLocalStorageObject.city;
+      console.log(cityName);
 
-  citiesArray.push(cityLocalStorageObject);
-  document.querySelector("form").reset();
-  console.log(citiesArray);
+      // function weatherContainer (cityName) {
+      fetch(URL + cityName + KEY)
+      // }
+      .then(function (response) {
+          return response.json()
+        })
+        .then(function (res) {
+          console.log(res)
+        })
 
-  // console.log("city", JSON.stringify(cityLocalStorageObject));
 
-  localStorage.setItem("cityList", JSON.stringify(citiesArray));
-  // if (city !== )
-  // localStorage.setItem('city', JSON.stringify(city))
+
+        
+  renderCitiesList()
 }
+
+function renderCitiesList() {
+  history.innerHTML = "History Results";
+  historyCountSpan.textContent = citiesArray.length;
+
+    for (let i = 0; i < citiesArray.length; i++) {
+      city = citiesArray[i];
+
+      // let li = document.createElement("li");
+      // li.textContent = citiesArray[i].city;
+      // li.setAttribute("data-index", i);
+      // console.log(li)
+
+      let button = document.createElement("button");
+      button.textContent = citiesArray[i].city;
+      button.setAttribute("id", "btn-submit");
+      button.setAttribute("data-index", i);
+
+    // li.appendChild(button);
+    history.appendChild(button);
+  }
+
+}
+
+
+
 submitButton.addEventListener("click", addCity);
 
 
@@ -42,37 +78,14 @@ submitButton.addEventListener("click", addCity);
 
 
 
+//ATTEMPTING TO CREATE HISTORY RELOAD SECTION
+// const cityNameReturn = JSON.parse(localStorage.getItem('cityList'));
+// console.log(cityNameReturn)
+// cityNameValue = cityNameReturn.citiesArray[i].value;
+// console.log(cityNameValue);
 
 
-// function renderCitiesList() {
-//   history.innerHTML = "";
-//   historyCountSpan.textContent = city.length;
-
-//   for (let i = 0; i < city.length; i++) {
-//     city = city[i];
-
-//     let li = document.createElement("li");
-//     li.textContent = city;
-//     li.setAttribute("data-index", i);
-
-//     let button = document.createElement("button");
-//     button.textContent = "";
-
-//     li.appendChild(button);
-//     history.appendChild(li);
-//   }
-
-// }
-
-
-
-
-
-
-// const updater = JSON.parse(localStorage.getItem('city'));
-
-// console.log(updater)
-
+// function weatherContainer ()
 // fetch(URL + updater + KEY)
 // .then(function (response) {
 //   return response.json()

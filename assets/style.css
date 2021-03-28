@@ -42,7 +42,7 @@
     font-size: 1.2rem;
   }
   
-   .btn {
+   #btn-submit {
     font-size: 1.3rem;
     text-decoration:none;
     padding: 6px 5px;
@@ -58,7 +58,7 @@
     transform: translate(-1px, -1px);
   }
   
-   .btn:hover {
+   #btn-submit:hover {
     color: var(--primary);
     background-color: var(--tertiary);
     transform: translate(0, 0);
@@ -181,6 +181,38 @@
     font-size: 1.2rem;
     border: 2px solid var(--light-dark);
     border-radius: var(--border-radius);
+  }
+
+  li {
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color:#38302e;
+    color: white;
+    font-size: 1.5em;
+    line-height: 1.5;
+  }
+  
+  li:before {
+    content: "\200B";
+    position: absolute;
+  }
+  
+  li::after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  
+  li button {
+    float: right;
+    border: none;
+    height: 40px;
+    cursor: pointer;
+    background-color: #ff7034;
+    color: white;
+    font-size: 1em;
   }
   
   /* HEIGHT / WIDTH UTILS */
