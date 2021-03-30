@@ -214,6 +214,30 @@
     color: white;
     font-size: 1em;
   }
+
+  #location {
+    font-size:3em;
+  }
+
+  #description {
+    /* height: 50px; */
+    /* margin-top: 3px;
+    margin-bottom: 5px;
+    padding: 2px; */
+    /* background-color:#38302e; */
+    color: white;
+    font-size: 3em;
+    line-height: 1.5;
+  }
+
+  #uv-index {
+    border-style:solid;
+    border-color:crimson;
+    border-radius:10px;
+    background-color:crimson;
+    color:whitesmoke;
+
+  }
   
   /* HEIGHT / WIDTH UTILS */
   .min-100-vh {
@@ -430,7 +454,7 @@
   }
   
   /* col-lg */
-  @media screen and (min-width: 992px) {
+  /* @media screen and (min-width: 992px) {
     .col-lg-1 {
       flex: 0 0 calc(100% * 1 / 12 - 2%);
     }
@@ -478,9 +502,9 @@
     .col-lg-12 {
       flex: 0 0 100%;
     }
-  }
+  } */
   
-  /* col-xl */
+  /* col-xl
   @media screen and (min-width: 1200px) {
     .col-xl-1 {
       flex: 0 0 calc(100% * 1 / 12 - 2%);
@@ -529,7 +553,7 @@
     .col-xl-12 {
       flex: 0 0 100%;
     }
-  }
+  } */
   
   
   

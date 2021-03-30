@@ -1,12 +1,21 @@
 const KEY = "&appid=84e804a2f27fd4b395f985c7c7fd8ead";
 const URL = "https://api.openweathermap.org/data/2.5/weather?q="
+const URLtwo = "https://api.openweathermap.org/data/2.5/uvi?lat="
+const URLthree = "&lon=";
+const URLfour = "https://api.openweathermap.org/data/2.5/forecast?q=";
 const nameInputEl = document.getElementById("form-input");
 const submitButton = document.getElementById("btn-submit");
+const weatherBox = document.getElementsByClassName('weather-box')[0];
+const weatherContent = document.getElementsByClassName('weather-content')[0];
+const weatherOverview = document.getElementsByClassName('weather-overview')[0];
+const weatherTemp = document.getElementsByClassName('weather-temp')[0];
 const history = document.querySelector(".city-buttons");
 historyCountSpan = document.querySelector("#history-count")
 
 let cityLocalStorageObject = {}; 
 let citiesArray = [];
+let longitude;
+let latitude;
 
 
 
@@ -27,23 +36,37 @@ const addCity = (ev) => {
 
       localStorage.setItem("cityList", JSON.stringify(citiesArray));
   
-      let cityName = cityLocalStorageObject.city;
-      console.log(cityName);
+        let cityName = cityLocalStorageObject.city;
+        console.log(cityName);
 
-      // function weatherContainer (cityName) {
-      fetch(URL + cityName + KEY)
-      // }
-      .then(function (response) {
-          return response.json()
+        fetch(URL + cityName + KEY)
+        .then(function (response) {
+        return response.json()
         })
-        .then(function (res) {
-          console.log(res)
+        .then(function (data) {
+        console.log(data)
+        drawWeather(data);
         })
+        .catch(function() {
+        //catch errors
+        });
 
+        // fetch(URLfour + cityName + KEY)
+        // .then(function (response) {
+        //   return response.json()
+        // })
+        // .then(function (dataThree) {
+        //   console.log(dataThree)
+        //   forecast(dataThree);
+        // })
+        // .catch(function() {
 
+        // });
 
-        
-  renderCitiesList()
+    
+  // weatherContainer();
+  renderCitiesList();
+  
 }
 
 function renderCitiesList() {
@@ -70,6 +93,50 @@ function renderCitiesList() {
 }
 
 
+function drawWeather(d) {
+  // document.getElementById('date').innerHTML = (moment().format("LLLL"));
+	let fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32); 
+	
+  document.getElementById('location').innerHTML = d.name,
+    
+	document.getElementById('description').innerHTML = d.weather[0].description;
+  document.getElementsByClassName('icon-image').innerHTML = d.weather[1].icon;
+	document.getElementById('temp').innerHTML = fahrenheit + '&deg;';
+    // document.getElementById('clouds').innerHTML = d.clouds.all;
+	  
+  document.getElementById('humidity').innerHTML = d.main.humidity;
+  document.getElementById('wind-speed').innerHTML = d.wind.speed;
+
+    // document.getElementById('uv-index').innerHTML = d.name;
+    longitude = document.getElementById('lon').innerHTML = d.coord.lon;
+    latitude = document.getElementById('lat').innerHTML = d.coord.lat;
+
+    fetch(URLtwo + latitude + URLthree + longitude + KEY)
+      .then(function (response) {
+      return response.json()
+      })
+      .then(function (dataTwo) {
+      console.log(dataTwo)
+      uvIndex(dataTwo);
+      })
+      .catch(function() {
+      });
+}
+
+function uvIndex(dataTwo) {
+  document.getElementById('uv-index').innerHTML = dataTwo.value;
+  document.getElementById('uv-index').removeAttribute('style');
+}
+
+// function forecast(dataThree) {
+//   document.getElementById('forecast').innerHTML = dataThree[0].weather;
+// }
+
+// forecast.forEach(day => {
+//   let date = new Date(day.dt * 1000);
+
+
+// })
 
 submitButton.addEventListener("click", addCity);
 
