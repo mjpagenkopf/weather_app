@@ -7,7 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
   <link rel="stylesheet" href="assets/style.css">
+  
   <title>Weather App</title>
 </head>
 
@@ -19,31 +21,78 @@
   <main class="flex-row justify-space-between">
     <div class="col-12 col-md-4">
 
-      <div class="card">
-        <h3 class="card-header text-uppercase">Search for a City</h3>
-        <form id="user-form" class="card-body">
-          <input type="text" class="form-input" />
-          <button type="submit" class="btn">Get User</button>
-        </form>
-      </div>
+        <div class="card">
+          <h3 class="card-header text-uppercase">Search for a City</h3>
 
-      <div class="card">
-        <h3 class="card-header text-uppercase"></h3>
-        <div class="city-buttons card-body">
-          <button data-city="recent" class="btn">recent</button>
-          <button data-city="recent" class="btn">recent</button>
-          <button data-city="recent" class="btn">recent</button>
+            <form id="user-form" class="card-body">
+              <input type="text" id="form-input" placeholder="City" />
+                <button id="btn-submit" type="click">Get City
+                </button>
+            </form>
         </div>
-      </div>
+
+        <div class="card">
+          <h3 class="card-header text-uppercase"></h3>
+            <div class="city-buttons card-body"> 
+              <p>Search History: <span id="history-count"></span>
+              </p>
+            </div>
+        </div>
     </div>
 
-    <div class="col-12 col-md-8 card">
-      <h2 class="subtitle">Showing Weather for: <span id="weather-results"></span></h2>
-      <div class="results-container list-group"></div>
+    <div id="weather" class="col-12 col-md-8 card"> 
+        <h2 id='location' >
+          <!-- <span id='date'></span> -->
+        </h2>
+            <h2 id='description' style='float:left;'></h2>
+            <img id='icon-image'>
+              <h3>Temperature: <span id='temp'></span></h3>
+              <br>
+              <h3>Humidity: <span id='humidity'></span></h3>
+              <br>
+              <h3>Wind Speed: <span id='wind-speed'></span></h3>
+              <br>
+              <h3>UV Index: <span id='uv-index' style="display:none"></span></h3>
+              <br>
+              <h3 style="display:none">Longitude: <span id='lon'></span></h3>
+              <h3 style="display:none">Latitude: <span id='lat'></span></h3> 
+
+        </div>    
+          <h2 id="forecast-header">5-Day Forecast</h2>
+          <div id='forecast' class="col-12"> <!-- card -->
+            
+          </div>
+        </div>
     </div>
+
+    
+
+
+
   </main>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="assets/script.js"></script>
+  
 </body>
 
 </html>
+
+
+
+
+            <!-- <div id=box1 class="weather-box">
+              <h6></h6>
+            </div>
+            <div id=box2 class="weather-box">
+              <h6></h6>
+            </div>
+            <div id=box3 class="weather-box">
+              <h6></h6>
+            </div>
+            <div id=box4 class="weather-box">
+              <h6></h6>
+            </div>
+            <div id=box5 class="weather-box">
+              <h6></h6>
+            </div>  -->

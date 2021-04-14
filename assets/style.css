@@ -42,7 +42,7 @@
     font-size: 1.2rem;
   }
   
-   .btn {
+   #btn-submit {
     font-size: 1.3rem;
     text-decoration:none;
     padding: 6px 5px;
@@ -58,7 +58,7 @@
     transform: translate(-1px, -1px);
   }
   
-   .btn:hover {
+   #btn-submit:hover {
     color: var(--primary);
     background-color: var(--tertiary);
     transform: translate(0, 0);
@@ -182,7 +182,89 @@
     border: 2px solid var(--light-dark);
     border-radius: var(--border-radius);
   }
+
+  li {
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color:#38302e;
+    color: white;
+    font-size: 1.5em;
+    line-height: 1.5;
+  }
   
+  li:before {
+    content: "\200B";
+    position: absolute;
+  }
+  
+  li::after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  
+  li button {
+    float: right;
+    border: none;
+    height: 40px;
+    cursor: pointer;
+    background-color: #ff7034;
+    color: white;
+    font-size: 1em;
+  }
+
+  #location {
+    font-size:3em;
+  }
+
+  #description {
+    /* height: 50px; */
+    /* margin-top: 3px;
+    margin-bottom: 5px;
+    padding: 2px; */
+    /* background-color:#38302e; */
+    color: white;
+    font-size: 3em;
+    line-height: 1.5;
+  }
+
+  #uv-index {
+    border-style:solid;
+    border-color:crimson;
+    border-radius:10px;
+    background-color:crimson;
+    color:whitesmoke;
+
+  }
+  
+  #forecast {
+    float:right;
+
+  }
+  .column {
+    padding-bottom: 2;
+    float:left;
+    width:20%;
+    background-color: #819e87;
+    
+  }
+
+  .column .temp-size {
+    color: white;
+    font-size: 1.1em;
+    line-height: 1.5;
+  }
+  .column .wind-size {
+    font-size:1.1em;
+    color:azure
+  }
+  .column img {
+    size:150%;
+  }
+
+
   /* HEIGHT / WIDTH UTILS */
   .min-100-vh {
     min-height: 100vh;
@@ -398,7 +480,7 @@
   }
   
   /* col-lg */
-  @media screen and (min-width: 992px) {
+  /* @media screen and (min-width: 992px) {
     .col-lg-1 {
       flex: 0 0 calc(100% * 1 / 12 - 2%);
     }
@@ -446,9 +528,9 @@
     .col-lg-12 {
       flex: 0 0 100%;
     }
-  }
+  } */
   
-  /* col-xl */
+  /* col-xl
   @media screen and (min-width: 1200px) {
     .col-xl-1 {
       flex: 0 0 calc(100% * 1 / 12 - 2%);
@@ -497,7 +579,7 @@
     .col-xl-12 {
       flex: 0 0 100%;
     }
-  }
+  } */
   
   
   
