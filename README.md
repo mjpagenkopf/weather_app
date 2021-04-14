@@ -27,9 +27,9 @@ Assignment was to create a weather application that will:
 
 # Links to active site and repo below:
 
-[Weather Dashboard Active Link](https://mjpagenkopf.github.io/work_day_scheduler/)
+[Weather Dashboard Active Link](https://mjpagenkopf.github.io/weather_app/)
 
-[Weather Dashboard Repository Link](https://github.com/mjpagenkopf/work_day_scheduler)
+[Weather Dashboard Repository Link](https://github.com/mjpagenkopf/weather_app)
 
 
-![Screenshot of Work Day Scheduler](./assets/screenshot_work_day_scheduler.png)
+![Screenshot of Work Day Scheduler](./assets/weather_app.png)
