@@ -26,12 +26,13 @@
 
             <form id="user-form" class="card-body">
               <input type="text" id="form-input" placeholder="City" />
-              <button id="btn-submit" type="click">Get City</button>
+                <button id="btn-submit" type="click">Get City
+                </button>
             </form>
         </div>
 
         <div class="card">
-            <h3 class="card-header text-uppercase"></h3>
+          <h3 class="card-header text-uppercase"></h3>
             <div class="city-buttons card-body"> 
               <p>Search History: <span id="history-count"></span>
               </p>
@@ -40,10 +41,11 @@
     </div>
 
     <div id="weather" class="col-12 col-md-8 card"> 
-        <div id='location' class="subtitle">
+        <h2 id='location' >
           <!-- <span id='date'></span> -->
-        </div>
-            <div id='description' class="subtitle icon-image"></div>
+        </h2>
+            <h2 id='description' style='float:left;'></h2>
+            <img id='icon-image'>
               <h3>Temperature: <span id='temp'></span></h3>
               <br>
               <h3>Humidity: <span id='humidity'></span></h3>
@@ -55,19 +57,12 @@
               <h3 style="display:none">Longitude: <span id='lon'></span></h3>
               <h3 style="display:none">Latitude: <span id='lat'></span></h3> 
 
-              
-
-
-              </div>
-
-              <div id='forecast' class="col-12 col-md-8 card">
-                <div class="weather-box">
-                  <div class="weather-content">
-                    <div class="weather-overview"></div>
-                    <div class="weather-temp"></div>
-                  </div>
-                  <div class="forecast-box"></div>
-                </div>
+        </div>    
+          <h2 id="forecast-header">5-Day Forecast</h2>
+          <div id='forecast' class="col-12"> <!-- card -->
+            
+          </div>
+        </div>
     </div>
 
     
@@ -75,9 +70,29 @@
 
 
   </main>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="assets/script.js"></script>
   
 </body>
 
 </html>
+
+
+
+
+            <!-- <div id=box1 class="weather-box">
+              <h6></h6>
+            </div>
+            <div id=box2 class="weather-box">
+              <h6></h6>
+            </div>
+            <div id=box3 class="weather-box">
+              <h6></h6>
+            </div>
+            <div id=box4 class="weather-box">
+              <h6></h6>
+            </div>
+            <div id=box5 class="weather-box">
+              <h6></h6>
+            </div>  -->

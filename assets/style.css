@@ -239,6 +239,32 @@
 
   }
   
+  #forecast {
+    float:right;
+
+  }
+  .column {
+    padding-bottom: 2;
+    float:left;
+    width:20%;
+    background-color: #819e87;
+    
+  }
+
+  .column .temp-size {
+    color: white;
+    font-size: 1.1em;
+    line-height: 1.5;
+  }
+  .column .wind-size {
+    font-size:1.1em;
+    color:azure
+  }
+  .column img {
+    size:150%;
+  }
+
+
   /* HEIGHT / WIDTH UTILS */
   .min-100-vh {
     min-height: 100vh;
